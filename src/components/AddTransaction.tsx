@@ -55,7 +55,7 @@ const AddTransaction = () => {
 			>
 				Add New Transaction
 			</Typography>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} autoComplete="off">
 				<TextField
 					id="description"
 					label="Description"
@@ -68,6 +68,7 @@ const AddTransaction = () => {
 					label="Amount in Numbers"
 					value={amount}
 					onChange={(e) => setAmount(e.target.value)}
+					type="number"
 					fullWidth
 				/>
 				<Box textAlign="center" marginTop="20px">
