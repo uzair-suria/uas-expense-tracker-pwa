@@ -3,6 +3,7 @@ import './App.css';
 import ExpenseTracker from './containers/ExpenseTracker';
 
 function App() {
+	Notification.requestPermission();
 	return (
 		<>
 			<div className="App">
