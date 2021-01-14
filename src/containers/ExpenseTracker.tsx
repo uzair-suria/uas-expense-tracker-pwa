@@ -1,29 +1,38 @@
+import { makeStyles } from '@material-ui/core';
 import React from 'react';
+import AddTransaction from '../components/AddTransaction';
+import Balance from '../components/Balance';
+import Header from '../components/Header';
+import Summary from '../components/Summary';
+import TransactionHistory from '../components/TransactionHistory';
+import { GlobalProvider } from '../context/GlobalContext';
+
+const useStyles = makeStyles({
+	root: {
+		margin: '0px',
+		padding: '0px',
+	},
+	container: {
+		maxWidth: '360px',
+		margin: '0 auto',
+		padding: '20px',
+	},
+});
 
 const ExpenseTracker = () => {
+	const styles = useStyles();
 	return (
-		<div>
-			<>
-				<h1>Expense Tracker Application</h1>
-				<h5>Application Under Development</h5>
-				<div className="feature-box">
-					<h4>Application Features Checklist</h4>
-					<div className="features-list">
-						<h5>Mandatory Features</h5>
-						<ul>
-							<li>Implemented in TypeScript</li>
-							<li>Must be PWA</li>
-							<li>Should have Firebase Cloud Messaging Implemented</li>
-						</ul>
-						<h5>Nice to have</h5>
-						<ul>
-							<li>PWA Implemented with Workbox</li>
-							<li>Different caching strategies than the default ones</li>
-						</ul>
-					</div>
-				</div>
-			</>
-		</div>
+		<GlobalProvider>
+			<div className={styles.container}>
+				{/* <Paper className={styles.container}> */}
+				<Header />
+				<Balance />
+				<Summary />
+				<TransactionHistory />
+				<AddTransaction />
+				{/* </Paper> */}
+			</div>
+		</GlobalProvider>
 	);
 };
 
